@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPs</title>
+</head>
+<body>
+    <h1>OOPs</h1>
+    <p>OOPs Stand for Object Oriented Programming System. Before the invention of the OOPs, <br> procedural programming was done in which we created procedures/functions to manipulate <br> the data while the idea
+        of Object Oriented Programming is to create objects that can have <br> both data and functions (Properties and methods)
+    </p>
+    <hr>
+    <h2>Encapsulation</h2>
+    <p>Encapsulation is the packing of data and functions into one component (for example, a class) <br> and then controlling access to that component to make a "blackbox" out of the object. <br> Because of this, a user of that class only needs to know its interface <br> (that is, the data and functions exposed outside the class), not the hidden implementation.</p>
+    <h3>Example</h3>
+    <pre>
+        var person = {
+            fullName : "Suraj Kumar",
+          };
+          
+          alert(person.fullName); // Suraj Kumar
+          person.fullName = "Abhishek Jain";
+          alert(person.fullName); // Abhishek Jain
+    </pre>
+    <hr>
+    <h2>Abstraction</h2>
+    <p>Abstraction in computer programming is a way to reduce complexity and allow efficient design and <br> implementation in complex software systems. It hides the technical complexity of systems behind simpler APIs.</p>
+    <h3>Example</h3>
+    <pre>
+        class ImplementAbstraction {
+            // method to set values of internal members
+            set(x, y) {
+              this.a = x;
+              this.b = y;
+            }
+          
+            display() {
+              console.log('a = ' + this.a);
+              console.log('b = ' + this.b);
+            }
+          }
+          
+          const obj = new ImplementAbstraction();
+          obj.set(10, 20);
+          obj.display();
+          // a = 10
+          // b = 20
+    </pre>
+    <hr>
+    <h2>Inheritence</h2>
+    <p>Inheritance is basically the way through which we share common functionalities among classes. <br> So in other ways, it gives the power to avoid code duplication in a class, by borrowing the <br> functionalities from the other class which possesses those functionalities.</p>
+    <h3>Example</h3>
+    <pre>
+        const arr = ["C", "C++", "Java", "Javascript"];
+        arr.__proto__;
+        arr.__proto__.__prot__;  
+    </pre>
+    <hr>
+    <h2>Polymorphism</h2>
+    <p>Polymorphism is the technique through which we can substitute classes that have common <br> functionality in terms of their properties and methods.</p>
+    <h3>Example</h3>
+    <pre>
+        function Animal(sound) {
+            this.sound = sound;
+            this.speak = function () {
+              return this.sound;
+            };
+          }
+          
+          function showInfo(obj) {
+            console.log(obj.speak());
+          }
+          
+          const dog = new Animal("woof");
+          const cat = new Animal("meow");
+          
+          showInfo(dog);
+          showInfo(cat);
+          
+    </pre>
+    <h1>Classes</h1>
+    <p>Classes were introduced in ES6 or ECMAScript 2015. Classes are used to basically create templates <br> which can be used later on to create objects instances.
+        The Constructor method inside the classes <br> allows us to initialise the values of instances as we had done before the ES6 was introduced with <br> the help of functions.
+        Since the main idea behind OOP is that everything can be imagined in the <br> form of objects and JS being one of the language that supports that fact, so introduction of <br> Classes did make a sense.
+    </p>
+    <h3>Example</h3>
+    <pre>
+        class Rectangle {
+            constructor(){
+                console.log('A rectangle is created');
+            }
+        }
+        
+        const r1 = new Rectangle(); // A rectangle is created
+        class Rectangle {
+            constructor(length, breadth){
+                this.length = length;
+                this.breadth = breadth;
+            }
+        }
+        
+        const r1 = new Rectangle(8, 13);
+        r1.length; // 8
+        r1.breadth; // 13
+        class Rectangle {
+            constructor(length, breadth){
+                this.length = length;
+                this.breadth = breadth;
+            }
+        
+            getArea() {
+                console.log('Area: ' + this.length * this.breadth);
+            }
+        
+            getPerimeter(){
+                console.log('Perimeter: ' + 2 * ( this.length + this.breadth))
+            }
+        }
+        
+        const r1 = new Rectangle(8,13);
+        r1.getArea();
+        r1.getPerimeter();
+    </pre>
+    <hr>
+    <h3>Inheritance</h3>
+    <p>Inheritance is basically the way through which we share common functionalities among classes. <br> So in other ways, it gives the power to avoid code duplication in a class, by borrowing the <br> functionalities from the other class which possesses those functionalities.</p>
+    <h4>Example</h4>
+    <pre>
+        class Rectangle {
+            constructor(height, width) {
+              this.height = height;
+              this.width = width;
+            }          
+    </pre>
+    <hr>
+    <h3>Super</h3>
+    <p>By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods:</p>
+    <h4>Example</h4>
+    <pre>
+        class Person {
+            constructor(name, age, email) {
+              this.name = name;
+              this.age = age;
+              this.email = email;
+            }
+          
+            getInfo() {
+              console.log(
+                `Hi my name is ${this.name}, my age is ${this.age} and my email is ${this.email}`
+              );
+            }
+          }
+          
+          class Doctor extends Person {
+            constructor(name, age, email, description) {
+              super(name, age, email);
+              super.getInfo();
+              this.description = description;
+            }
+          }
+          
+          const p1 = new Doctor("Manu Prakash", 40, "manup@stanford.edu", "Inventor");          
+    </pre>
+    <hr>
+    <h3>Getters And Setters</h3>
+    <p>Getters and setters are basically used to define methods in a class in such way that they can then be used as properties.</p>
+    <h4>Example</h4>
+    <pre>
+        class Square {
+            constructor(side) {
+              this.length = side;
+              this.breadth = side;
+            }
+          
+            get area() {
+              console.log("Area: " + this.length * this.breadth);
+            }
+          
+            set side(area) {
+              this.length = Math.sqrt(area);
+              this.breadth = Math.sqrt(area);
+            }
+          }
+          
+          let s1 = new Square(10);
+          s1.area;
+          console.log(s1.length); // 10
+          console.log(s1.breadth); // 10
+          s1.side = 64;
+          console.log(s1.length); // 8
+          console.log(s1.breadth); // 8
+          
+    </pre>
+</body>
+</html>
